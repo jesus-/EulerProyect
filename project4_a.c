@@ -4,10 +4,11 @@ int isPalindrome(int a);
 
 int main(){
 	int i, j, aux=0;
-	for(i = 100; i<999; i++){
-		for(j=i;j<999;j++){
-			if(isPalindrome(i*j) && i*j >aux){
-				aux = i*j;
+	for(i = 9999; i>100; i--){
+		for(j=999;j>=i;j--){
+			if(isPalindrome(i*j) ){
+               aux = i*j;
+               break; //this only breaks the inner for!! 
 			}
 		}
 	}
