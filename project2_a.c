@@ -9,7 +9,7 @@ main(){
 		sum += c;
 		aux1 = aux2 + aux3;
         aux2 = aux3 + aux1;
-        aux3 = aux1 + aux2;
+        aux3 = aux1 + aux2;//only every 3 member of Fibonacci series is even
 	}
 	printf("the result is: %d\n",sum);
 }
