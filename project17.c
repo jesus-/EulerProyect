@@ -103,9 +103,7 @@ char * getTriple(int n){
     int f_n = n%100;
     int s_n = (n/100)%100;
     char str [80];
-//    char str1 [80];
-//    strcpy(str, "");
-   memset(str, '\0', sizeof(str));
+    memset(str, '\0', sizeof(str));
 
 //    printf("}}%s",getDouble(f_n));o
     switch (s_n){
@@ -129,14 +127,14 @@ char * getTriple(int n){
             return strcat(str, getDouble(f_n));
         case 7:
             strcpy(str,"sevenhundredand");
-            printf("getting number %d\n",f_n);
+   //         printf("getting number %d\n",f_n);
             return strcat(str, getDouble(f_n));
         case 8:
             strcpy(str,"eighthundredand");
             return strcat(str, getDouble(f_n));
         case 9:
             strcpy(str,"ninehundredand");
-           printf(">>%s",strcat(str, getDouble(f_n)));
+   //        printf(">>%s",strcat(str, getDouble(f_n)));
             return strcat(str, getDouble(f_n));
         case 0:
             return getDouble(f_n);
