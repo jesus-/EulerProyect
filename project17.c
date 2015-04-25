@@ -1,17 +1,27 @@
 #include<string.h>
 #include<stdio.h>
+#include<stdlib.h>
 
 char * getSingle(int number);
 char * getDouble(int number);
 char * getTriple(int number);
-int  main(){
-    char * test = getTriple(734);
-    printf("**%s**",test);
+int  main() {
+    char * total;
+    unsigned long number = 0;
+    char * aux;
 
+    int i;
+    for(i=1;i<=1000;i+=1){
+       aux = getTriple(i);
+       number +=strlen(aux);
+     }
+     printf("%lu\n",number);
 }
 
 char * getSingle(int number){
     switch (number){
+        case 0:
+            return "";
         case 1:
             return "one";
         case 2:
@@ -36,15 +46,15 @@ char * getSingle(int number){
 }
 
 char * getDouble(int number){
-    char str[80];
+    char * str;
     int first_number = number%10;
     int second_number = (number/10)%10;
-    memset(str, '\0', sizeof(str));
+    str = (char *) malloc(80);
+    memset(str, '\0',80);
 
-
-//    printf("**** %s\n",getSingle(first_number));
-//    printf("---%s\n",strcat(str,"thirty"));
     switch (number){
+        case 10:
+            return "ten";
         case 11:
             return "eleven";
         case 12:
@@ -52,13 +62,13 @@ char * getDouble(int number){
         case 13:
             return "thirteen";
         case 14:
-            return "fouteen";
+            return "fourteen";
         case 15:
             return "fifteen";
         case 16:
             return "sixteen";
         case 17:
-            return "eighteen";
+            return "seventeen";
         case 18:
             return "eighteen";
         case 19:
@@ -71,7 +81,6 @@ char * getDouble(int number){
             return strcat(str, getSingle(first_number));
         case 3:
             strcpy(str,"thirty");
-         //   printf("~~%s\n",strcat(str, getSingle(first_number)));
             return strcat(str, getSingle(first_number));
         case 4:
             strcpy(str,"forty");
@@ -102,40 +111,40 @@ char * getDouble(int number){
 char * getTriple(int n){
     int f_n = n%100;
     int s_n = (n/100)%100;
-    char str [80];
-    memset(str, '\0', sizeof(str));
+    char * str;
+    str = malloc(80);
+    memset(str, '\0',80);
 
-//    printf("}}%s",getDouble(f_n));o
     switch (s_n){
         case 1:
-            strcpy(str,"onehundredand");
+            strcpy(str,f_n==0?"onehundred":"onehundredand");
             return strcat(str, getDouble(f_n));
         case 2:
-            strcpy(str,"twohundredand");
+            strcpy(str,f_n==0?"twohundred":"twohundredand");
             return strcat(str, getDouble(f_n));
         case 3:
-            strcpy(str,"threehundredand");
+            strcpy(str,f_n==0?"threehundred":"threehundredand");
             return strcat(str, getDouble(f_n));
         case 4:
-            strcpy(str,"fourhundredand");
+            strcpy(str,f_n==0?"fourhundred":"fourhundredand");
             return strcat(str, getDouble(f_n));
         case 5:
-            strcpy(str,"fivehundredand");
+            strcpy(str,f_n==0?"fivehundred":"fivehundredand");
             return strcat(str, getDouble(f_n));
         case 6:
-            strcpy(str,"sixhundredand");
+            strcpy(str,f_n==0?"sixhundred":"sixhundredand");
             return strcat(str, getDouble(f_n));
         case 7:
-            strcpy(str,"sevenhundredand");
-   //         printf("getting number %d\n",f_n);
+            strcpy(str,f_n==0?"sevenhundred":"sevenhundredand");
             return strcat(str, getDouble(f_n));
         case 8:
-            strcpy(str,"eighthundredand");
+            strcpy(str,f_n==0?"eighthundred":"eighthundredand");
             return strcat(str, getDouble(f_n));
         case 9:
-            strcpy(str,"ninehundredand");
-   //        printf(">>%s",strcat(str, getDouble(f_n)));
+            strcpy(str,f_n==0?"ninehundred":"ninehundredand");
             return strcat(str, getDouble(f_n));
+        case 10:
+            return "onethousand";
         case 0:
             return getDouble(f_n);
     }
