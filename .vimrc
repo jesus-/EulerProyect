@@ -6,5 +6,6 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set hlsearch
 map <F8> :w <CR> :!gcc % -o %< -lgmp && ./%< <CR>
 colors jellybeans
